@@ -17,7 +17,6 @@ OBJ_DIR		= objects/
 INCLUDES	= -I ./includes/
 
 all: $(NAME)
-	./$(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ_FILES) -o $@
