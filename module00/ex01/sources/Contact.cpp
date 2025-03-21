@@ -2,6 +2,12 @@
 #include <iomanip>
 #include <iostream>
 
+std::string Contact::truncateField(const std::string &field) {
+    if (field.length() > 10)
+        return field.substr(0, 9) + ".";
+    return field;
+}
+
 void Contact::setContactInfo(const std::string &firstName, const std::string &lastName, const std::string &nickname,
                              const std::string &phoneNumber, const std::string &darkestSecret) {
     this->_firstName = firstName;
@@ -11,12 +17,11 @@ void Contact::setContactInfo(const std::string &firstName, const std::string &la
     this->_darkestSecret = darkestSecret;
 }
 
-void Contact::displayContactAsList() const {
-    std::cout << std::setw(10) << this->_firstName << "|";
-    std::cout << std::setw(10) << this->_lastName << "|";
-    std::cout << std::setw(10) << this->_nickname << "|"; //TODO: verify setw need and right-align elements
-    std::cout << std::setw(10) << this->_phoneNumber << "|";
-    std::cout << std::setw(10) << this->_darkestSecret << std::endl;
+void Contact::displayContactAsList(const int &index) const {
+    std::cout << std::setw(10) << index << "|";
+    std::cout << std::setw(10) << truncateField(this->_firstName) << "|";
+    std::cout << std::setw(10) << truncateField(this->_lastName) << "|";
+    std::cout << std::setw(10) << truncateField(this->_nickname) << "\n";
 }
 
 void Contact::displayContactAsLines() const {

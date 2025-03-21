@@ -16,9 +16,11 @@ public:
 
     void displayContactAsLines() const;
 
-    void displayContactAsList() const;
+    void displayContactAsList(const int &index) const;
 
     bool isContactEmpty() const;
+
+    static std::string truncateField(const std::string &field);
 };
 
 #endif //CONTACT_HPP

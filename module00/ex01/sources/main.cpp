@@ -6,7 +6,7 @@
 
 void chooseContact();
 
-int main() { //TODO: change prompt to get info
+int main() {
     std::cout << "Loading...\n";
     sleep(2);
     std::system("clear");
@@ -19,15 +19,12 @@ int main() { //TODO: change prompt to get info
         std::cout << "What would you like to do? ADD, SEARCH or EXIT?\n";
         std::getline(std::cin, command);
         if (command == "ADD") {
-            std::cout << "Adding...\n";
-            sleep(2); //TODO: change place
             phoneBook.add();
             continue;
         }
-        if (command == "SEARCH") { //TODO: if list empty do ... ? Figure out in subject
-            std::cout << "Searching...\n";
-            sleep(2); //TODO: change place
-            phoneBook.displayAllContacts();
+        if (command == "SEARCH") {
+            if (!phoneBook.displayAllContacts())
+                continue;
             std::cout << "Please provide the index of the contact you want to display.\n";
             std::string commandIndex;
             std::getline(std::cin, commandIndex);
