@@ -1,4 +1,23 @@
-#ifndef EX00_INCLUDES_ZOMBIE_HPP_
-#define EX00_INCLUDES_ZOMBIE_HPP_
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-#endif //EX00_INCLUDES_ZOMBIE_HPP_
+# include <string>
+
+class Zombie {
+    std::string _name;
+
+    void announce() const;
+
+    void denounce() const;
+
+public:
+    explicit Zombie(const std::string &name);
+
+    ~Zombie();
+};
+
+Zombie *newZombie(const std::string &name);
+
+void randomChump(const std::string &name);
+
+#endif //ZOMBIE_HPP
