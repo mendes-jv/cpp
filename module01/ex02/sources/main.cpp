@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 int main() {
     std::string brain = "HI THIS IS BRAIN";
