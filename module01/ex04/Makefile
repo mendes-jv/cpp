@@ -1,10 +1,10 @@
-NAME		= str_replace
+NAME		= replace
 
 CC			= c++
 
 CFLAGS		= -Wall -Wextra -Werror -Wunreachable-code -std=c++98
 
-FILES		= main HumanA HumanB Weapon
+FILES		= main
 
 SRC_FILES	= $(addprefix sources/, $(addsuffix .cpp, $(FILES)))
 

@@ -1,0 +1,26 @@
+./replace test "Corinthians" "42"
+./replace test "42" "Corinthians"
+
+./replace test " " "x"
+./replace test.replace "x" " x "
+
+./replace test "" ""
+./replace test " " ""
+./replace test "" " "
+
+chmod 000 test
+./replace test "Corinthians" "42"
+chmod 777
+./replace
+./replace 1
+./replace 1 2
+./replace 1 2 3
+./replace no_file
+
+touch test2
+./replace test2 "Corinthians" "42"
+./replace test2 "42" "Corinthians"
+./replace test2 " " "x"
+./replace test2.replace "x" " x "
+./replace test2 "" ""
+rm -f test2
