@@ -1,4 +1,4 @@
-NAME		= fixed
+NAME		= ./ClapTrap
 
 CC			= c++
 
