@@ -1,4 +1,4 @@
-NAME		= ./ClapTrap
+NAME		= ./clapTrap
 
 CC			= c++
 
