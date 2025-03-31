@@ -80,40 +80,41 @@ int main() {
   enemyClap.beRepaired(5);
   enemyClap.attack(player.getName());
   player.takeDamage(enemyClap.getAttackDamage());
+  player.guardGate();
   ClapTrap *playerAfter = new ClapTrap(player);
 
   std::cout << red << "\n\tINFO (after battle)\n" << reset
-	  << "\nHEAP ALLOCATION (player after battle)\n"
+	  << blue << "\nHEAP ALLOCATION (player after battle)\n" << reset
 	  << "Name: " << playerAfter->getName()
 	  << " | Hit Points: " << playerAfter->getHitPoints()
 	  << " | Energy Points: " << playerAfter->getEnergyPoints()
 	  << " | Attack Power: " << playerAfter->getAttackDamage()
-	  << "\nBY INSTANCE (const and default)\n"
+	  << blue << "\nBY INSTANCE (const and default)\n" << reset
 	  << "Name: " << a.getName()
 	  << " | Hit Points: " << a.getHitPoints()
 	  << " | Energy Points: " << a.getEnergyPoints()
 	  << " | Attack Power: " << a.getAttackDamage()
-	  << "\nBY NAME (player) \n"
+	  << blue << "\nBY NAME (player)\n" << reset
 	  << "Name: " << player.getName()
 	  << " | Hit Points: " << player.getHitPoints()
 	  << " | Energy Points: " << player.getEnergyPoints()
 	  << " | Attack Power: " << player.getAttackDamage()
-	  << "\nBY NAME (enemyScav after battle) \n"
+	  << blue << "\nBY NAME (enemyScav after battle)\n" << reset
 	  << "Name: " << enemyScav.getName()
 	  << " | Hit Points: " << enemyScav.getHitPoints()
 	  << " | Energy Points: " << enemyScav.getEnergyPoints()
 	  << " | Attack Power: " << enemyScav.getAttackDamage()
-	  << "\nBY NAME (enemyClap after battle) \n"
+	  << blue << "\nBY NAME (enemyClap after battle)\n" << reset
 	  << "Name: " << enemyClap.getName()
 	  << " | Hit Points: " << enemyClap.getHitPoints()
 	  << " | Energy Points: " << enemyClap.getEnergyPoints()
 	  << " | Attack Power: " << enemyClap.getAttackDamage()
-	  << "\nBY COPY (player before battle) \n"
+	  << blue << "\nBY COPY (player before battle)\n" << reset
 	  << "Name: " << playerBefore.getName()
 	  << " | Hit Points: " << playerBefore.getHitPoints()
 	  << " | Energy Points: " << playerBefore.getEnergyPoints()
 	  << " | Attack Power: " << playerBefore.getAttackDamage()
-	  << "\nBY ASSIGNMENT (enemyScav before battle) \n"
+	  << blue << "\nBY ASSIGNMENT (enemyScav before battle)\n" << reset
 	  << "Name: " << enemyBefore.getName()
 	  << " | Hit Points: " << enemyBefore.getHitPoints()
 	  << " | Energy Points: " << enemyBefore.getEnergyPoints()
