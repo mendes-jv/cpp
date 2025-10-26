@@ -1,51 +1,46 @@
-#include <iostream>
-#include <cstdlib>
-#include <Animal.hpp>
-#include <Dog.hpp>
-#include <Cat.hpp>
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include <Bureaucrat.hpp>
 
 int main() {
-  std::string green = "\033[1;32m";
-  std::string red = "\033[1;31m";
-  std::string blue = "\033[1;34m";
-  std::string reset = "\033[0m";
+	Bureaucrat joao("João da Silva", 2);
+	Bureaucrat victor("Victor Mendes", 149);
 
-  std::cout << green << "\t//MY MAIN TESTS//\n\n" << reset
-			<< blue << "Creating Animal object" << reset
-			<< std::endl;
-  Animal *animal = new Animal();
-  std::cout << red << "Animal type: " << animal->getType() << reset << std::endl;
-  animal->makeSound();
-  delete animal;
+	std::cout << joao << std::endl;
+	std::cout << victor << std::endl;
 
-  std::cout << blue << "\nCreating Animal object with Cat type" << reset << std::endl;
-  animal = new Cat();
-  std::cout << red << "Animal type: " << animal->getType() << reset << std::endl;
-  animal->makeSound();
-  delete animal;
+	joao.incrementGrade();
+	std::cout << joao << std::endl;
 
-  std::cout << blue << "\nCreating Animal object with Dog type" << reset << std::endl;
-  animal = new Dog();
-  std::cout << red << "Animal type: " << animal->getType() << reset << std::endl;
-  animal->makeSound();
-  delete animal;
+	victor.decrementGrade();
+	std::cout << victor << std::endl;
 
-  std::cout << blue << "\nCreating WrongAnimal object" << reset << std::endl;
-  WrongAnimal *wrongAnimal = new WrongAnimal();
-  std::cout << red << "WrongAnimal type: " << wrongAnimal->getType() << reset << std::endl;
-  wrongAnimal->makeSound();
-  delete wrongAnimal;
+	try {
+		Bureaucrat test_1("test - create high exception", 0);
+		std::cout << test_1 << std::endl;
+	} catch (std::exception& exception) {
+		std::cout << "Exception: " << exception.what() << std::endl;
+	}
 
-  std::cout << blue << "\nCreating WrongAnimal object with WrongCat type" << reset << std::endl;
-  WrongCat *wrongCat = new WrongCat();
-  wrongAnimal = wrongCat;
-  std::cout << red << "WrongAnimal type: " << wrongAnimal->getType() << reset << std::endl;
-  wrongAnimal->makeSound();
-  std::cout << red << "WrongCat type: " << wrongCat->getType() << reset << std::endl;
-  wrongCat->makeSound();
-  delete wrongCat;
+	try {
+		Bureaucrat test_2("test - create low exception 2", 151);
+		std::cout << test_2 << std::endl;
+	} catch (std::exception& exception) {
+		std::cout << "Exception: " << exception.what() << std::endl;
+	}
 
-  return EXIT_SUCCESS;
+	try {
+		joao.incrementGrade();
+	} catch (std::exception& exception) {
+		std::cout << "Exception: " << exception.what() << std::endl;
+	}
+
+	try {
+		victor.decrementGrade();
+	} catch (std::exception& exception) {
+		std::cout << "Exception: " << exception.what() << std::endl;
+	}
+
+	std::cout << joao.getGrade() << std::endl;
+	//joao.incrementGrade();
+
+	return 0;
 }

@@ -1,31 +1,37 @@
-#pragma once
-
-#include <iostream>
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+# include <string>
+# include <iostream>
+# include <exception>
 
 class Bureaucrat {
- private:
-  const std::string _name;
-  int _grade;
- public:
-  Bureaucrat();
+public:
+	Bureaucrat();
+	Bureaucrat(const std::string& name, int grade);
+	Bureaucrat(const Bureaucrat& other);
+	Bureaucrat& operator=(const Bureaucrat& other);
+	~Bureaucrat();
+	const std::string& getName() const;
+	int getGrade() const;
+	void incrementGrade();
+	void decrementGrade();
 
-  Bureaucrat(const std::string &name, int grade);
+	class GradeTooHighException: public std::exception {
+	public:
+		const char* what() const throw();
+	};
 
-  Bureaucrat(const Bureaucrat &other);
+	class GradeTooLowException: public std::exception {
+	public:
+		const char* what() const throw();
+	};
 
-  Bureaucrat &operator=(const Bureaucrat &other);
-
-  ~Bureaucrat();
-
-  Bureaucrat(const std::string &name, int grade) const;
-
-  const std::string &getName() const;
-
-  int &getGrade() const;
-
-  void rankUp();
-
-  void rankDown();
+private:
+	void validateGrade(int g);
+	const std::string _name;
+	int _grade;
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+
+#endif
