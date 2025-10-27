@@ -6,13 +6,13 @@ CFLAGS		= -Wall -Wextra -Werror -Wunreachable-code -std=c++98
 
 FILES		= main Bureaucrat Form
 
-SRC_FILES	= $(addprefix sources/, $(addsuffix .cpp, $(FILES)))
-
 SRC_DIR 	= sources/
 
-OBJ_FILES	= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
+SRC_FILES	= $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
 
 OBJ_DIR		= objects/
+
+OBJ_FILES	= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
 INCLUDES	= -I ./includes/
 
