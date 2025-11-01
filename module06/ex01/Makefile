@@ -1,10 +1,10 @@
-NAME		= ./bureaucrat
+NAME		= ./serializer
 
 CC			= c++
 
 CFLAGS		= -Wall -Wextra -Werror -Wunreachable-code -std=c++98
 
-FILES		= main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm Intern
+FILES		= main Serializer
 
 SRC_DIR 	= sources/
 
